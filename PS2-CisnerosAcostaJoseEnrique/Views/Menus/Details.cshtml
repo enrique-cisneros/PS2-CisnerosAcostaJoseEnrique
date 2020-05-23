@@ -1,0 +1,58 @@
+﻿@model PS2_CisnerosAcostaJoseEnrique.Models.Menu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoAlimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoAlimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calorias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calorias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

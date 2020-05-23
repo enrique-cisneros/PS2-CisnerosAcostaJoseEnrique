@@ -1,0 +1,367 @@
+﻿@model IEnumerable<PS2_CisnerosAcostaJoseEnrique.Models.Order>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PS2-Cisneros Acosta</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicons
+        ================================================== -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/font-awesome.css">
+    
+
+    <!-- Stylesheet
+        ================================================== -->
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Navigation
+        ==========================================-->
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#features" class="page-scroll">Favoritos</a></li>
+                    <li><a href="#restaurant-menu" class="page-scroll">Menú</a></li>
+                    <li><a href="#team" class="page-scroll">Ordenes</a></li>
+                    <li><a href="#contact" class="page-scroll">Contacto</a></li>
+                    <li><a href="@Url.Action("Register", "Account")" class="page-scroll">Registro</a></li>
+                    <li><a href="@Url.Action("Login", "Account")" class="page-scroll">Inicio Sesión</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <!-- Header -->
+    <header id="header">
+        <div class="intro">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="intro-text">
+                            <h1>Joe's Diner</h1>
+                            <p>Cisneros Acosta José Enrique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Features Section -->
+    <div id="features" class="text-center">
+        <div class="container">
+            <div class="section-title">
+                <h2>Favoritos</h2>
+            </div>
+            <h3 class="center-block">Favoritos de Clientes</h3>
+            <div class="row">
+                <br />
+                @foreach (var item in Model)
+                {
+                    <div class="col-xl-3 col-md-3 mb-4">
+                        <a href="@Url.Action("Details","Orders", new { id=item.Id})">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">@item.NoOrden</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@item.NombreCliente</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-address-card fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+                <br />
+                <br />
+                <br />
+                <h3 class="center-block">Favoritos de Chef</h3>
+                <br />
+                <div class="col-xs-12 col-sm-4">
+                    <div class="features-item">
+                        <h3> <a class="collapse-item" href="@Url.Action("Details/8", "Menus")">Club Sandwich</a></h3>
+                        <img src="~/Content/img/specials/club.jpg" width="500" height="280" class="img-responsive" alt="">
+                        <p>Rico club sandwich con pan integral incluye jamon, pimientos, tomate y queso | Acompañado con papas o ensalada (150 cal.)</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="features-item">
+                        <h3> <a class="collapse-item" href="@Url.Action("Details/14", "Menus")">Crepas</a></h3>
+                        <img src="~/Content/img/specials/crepa.png" width="500" height="280" class="img-responsive" alt="">
+                        <p>Crepas dulces (Sabor: Nutella, Cajeta, Frutos Rojos) (100 cal.)</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="features-item">
+                        <h3> <a class="collapse-item" href="@Url.Action("Details/2", "Menus")">Deditos de Queso</a></h3>
+                        <img src="~/Content/img/specials/queso.jpg" width="500" height="280" class="img-responsive" alt="">
+                        <p>Orden con 8 deditos de queso, acompañado de 3 salsas (Ketchup, BBQ, Marinara) (150 cal.)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Restaurant Menu Section -->
+    <div id="restaurant-menu">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Menu</h2>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="menu-section">
+                        <h2 class="menu-section-title">Entradas</h2>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/1", "Menus")">Paparos</a></div>
+                            <div class="menu-item-price"> $10 </div>
+                            <div class="menu-item-description"> Orden de papas y aros de cebolla, acompañado de 3 salsas (Ketchup, BBQ, Marinara) (150 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/2", "Menus")">Deditos de Queso</a></div>
+                            <div class="menu-item-price"> $7 </div>
+                            <div class="menu-item-description"> Orden con 8 deditos de queso, acompañado de 3 salsas (Ketchup, BBQ, Marinara) (150 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/3", "Menus")">Ensalada Cesar</a></div>
+                            <div class="menu-item-price"> $8 </div>
+                            <div class="menu-item-description"> Plato con lechuga, pollo y crotones acompañado de aderezo de la casa para dos personas (70 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/4", "Menus")">Sopa Minestrone</a></div>
+                            <div class="menu-item-price"> $8 </div>
+                            <div class="menu-item-description"> Plato individual de sopa minestrone (80 cal.) </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="menu-section">
+                        <h2 class="menu-section-title">Platillos Principales</h2>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/5", "Menus")">Hamburguesa de Carne</a></div>
+                            <div class="menu-item-price"> $12 </div>
+                            <div class="menu-item-description"> Deliciosa hamburguesa de carne, hecha con pan artesanal incluye lechuga, tomate, cebolla, pepinillos, queso amarillo | Acompañado con papas (250 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/6", "Menus")">Hamburguesa de Pollo</a></div>
+                            <div class="menu-item-price"> $11 </div>
+                            <div class="menu-item-description"> Deliciosa hamburguesa de pechuga de pollo, hecha con pan artesanal acompañada con lechuga, tomate, cebolla, pepinillos, queso amarillo | Acompañado con papas (220 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/7", "Menus")">Pasta Alfredo</a></div>
+                            <div class="menu-item-price"> $13 </div>
+                            <div class="menu-item-description"> Platillo de pasta alfredo con pollo acomapañado con pan de ajo artesanal (120 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/8", "Menus")">Club Sandwich</a></div>
+                            <div class="menu-item-price"> $11 </div>
+                            <div class="menu-item-description"> Rico club sandwich con pan integral incluye jamon, pimientos, tomate y queso | Acompañado con papas o ensalada (150 cal.). </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="menu-section">
+                        <h2 class="menu-section-title">Bebidas</h2>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/9", "Menus")">Aguas Frescas</a></div>
+                            <div class="menu-item-price"> $3 </div>
+                            <div class="menu-item-description"> Aguas frescas de 600 ml (Sabores: Limonada, Jamaica, Horchata) (30 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/10", "Menus")">Te Helado</a></div>
+                            <div class="menu-item-price"> $3 </div>
+                            <div class="menu-item-description"> Te helado de 600 ml (Sabores: Limon Verde, Limon Negro, Durazno) (30 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/11", "Menus")">Sodas</a></div>
+                            <div class="menu-item-price"> $3 </div>
+                            <div class="menu-item-description"> Sodas de 600 ml (Sabores: Coca-Cola, Dr. Pepper, Sprite, Fanta, 7Up) (60 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/12", "Menus")">Malteadas</a></div>
+                            <div class="menu-item-price"> $5 </div>
+                            <div class="menu-item-description"> Malteada de 500 ml con leche entera o deslactosada (Sabores: Fresa, Vainilla, Chocolate) (80 cal.) </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="menu-section">
+                        <h2 class="menu-section-title">Postres</h2>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/13", "Menus")">Rebanada de Pastel</a></div>
+                            <div class="menu-item-price"> $4 </div>
+                            <div class="menu-item-description"> Rebanada de pastel (Sabor: Chocolate, Zanahoria, Red Velvet, 3 leches) (150 cal.) </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/14", "Menus")">Crepas</a></div>
+                            <div class="menu-item-price"> $4 </div>
+                            <div class="menu-item-description"> Crepas dulces (Sabor: Nutella, Cajeta, Frutos Rojos) (100 cal.)</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/15", "Menus")">Nieve</a></div>
+                            <div class="menu-item-price"> $2 </div>
+                            <div class="menu-item-description"> Vaso invidivual con nieve (Sabor: Vainilla, Chocolate, Napolitano) (75 cal.)</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name"><a class="collapse-item" href="@Url.Action("Details/16", "Menus")">Gelatinas</a></div>
+                            <div class="menu-item-price"> $2 </div>
+                            <div class="menu-item-description"> Plato individual con gelatina (Sabor: Uva, Cereza, Limon) (50 cal.)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Section -->
+    <div id="gallery">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="gallery-item"> <img src="~/Content/img/gallery/agua.jpg" width="500" height="333" class="img-responsive" alt=""></div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="gallery-item"> <img src="~/Content/img/gallery/pasta.jpg" width="500" height="333" class="img-responsive" alt=""></div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="gallery-item"> <img src="~/Content/img/gallery/ensalada.jpg" width="500" height="333" class="img-responsive" alt=""></div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="gallery-item"> <img src="~/Content/img/gallery/soda.jpg" width="500" height="333" class="img-responsive" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team Section -->
+    <div id="team">
+        <div class="container">
+            <div id="row">
+                <div class="col-md-6">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="section-title">
+                            <h2>Ordenes</h2>
+                        </div>
+                        <h3>Si gustas probar uno de nuestros deliciosos platillos puedes realizar un pedido, solamente dale click en Ordenar</h3>
+                        <h3><a class="collapse-item" href="@Url.Action("Index", "Orders")">Ordenar</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="team-img"><img src="~/Content/img/comida.jpg" width="700" height="400" alt="..."></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <div id="contact" class="text-center">
+        <div class="container text-center">
+            <div class="col-md-4">
+                <h3>Alumno</h3>
+                <div class="contact-item">
+                    <p>Cisneros Acosta José Enrique</p>
+                    <p>17211668</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3>Carrera</h3>
+                <div class="contact-item">
+                    <p>Ingenieria Informática</p>
+                    <p>Instituto Tecnologico de Tijuana</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3>Materia</h3>
+                <div class="contact-item">
+                    <p>Desarrollo de Aplicaciones Web</p>
+                    <p>Juan Manuel Hernandez Martinez</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Send us a message</h3>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container text-center">
+            <div class="col-md-6">
+                <p>&copy; 2017 Gusto. All rights reserved. Design by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+            </div>
+            <div class="col-md-6">
+                <div class="social">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/umd/jquery.1.11.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/umd/SmoothScroll.js"></script>
+    <script type="text/javascript" src="~/Scripts/umd/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="~/Scripts/umd/contact_me.js"></script>
+    <script type="text/javascript" src="~/Scripts/umd/main.js"></script>
+</body>
+</html>
